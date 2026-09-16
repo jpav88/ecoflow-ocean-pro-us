@@ -1,0 +1,16 @@
+# Never commit raw captures — they carry serials, account IDs, and broker credentials
+captures/
+*.jsonl
+
+# Secrets
+.env
+cred.txt
+*cred*.txt
+
+# Python
+__pycache__/
+*.py[oc]
+.venv/
+
+# macOS
+.DS_Store
