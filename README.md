@@ -1,7 +1,7 @@
 # ecoflow-ocean-pro-us
 
-**Reverse-engineered app-MQTT field map for the US EcoFlow Power Ocean Pro** — split-phase
-(120/240 V), HR51 inverter + HR61 Ocean Smart Panel 40. An independent, substantially-extended
+**Reverse-engineered app-MQTT field map for the US EcoFlow OCEAN Pro** — split-phase
+(120/240 V), HR51 inverter + HR61 OCEAN Smart Electrical Panel 40. An independent, substantially-extended
 reverse-engineering of this product's telemetry, validated against a utility-meter-checked
 collector.
 
@@ -27,7 +27,7 @@ EU field numbers do **not** transfer here.
 Telemetry is read from EcoFlow's **cloud** MQTT broker — it is entirely cloud-relayed:
 
 ```
-Ocean Pro / Panel  ⇄  EcoFlow cloud MQTT broker  ⇄  phone app (and this decoder)
+OCEAN Pro / Panel  ⇄  EcoFlow cloud MQTT broker  ⇄  phone app (and this decoder)
                           (mqtt.ecoflow.com)
 ```
 
@@ -47,8 +47,8 @@ live home battery/panel is risky and unsupported here.
 
 ## The system this was mapped from
 
-- **Inverter:** EcoFlow Power Ocean Pro (HR51 series), split-phase 120/240 V
-- **Panel:** Ocean Smart Panel 40 (HR61 series), 40 circuits, on a 200 A / 240 V split-phase
+- **Inverter:** EcoFlow OCEAN Pro (HR51 series), split-phase 120/240 V
+- **Panel:** OCEAN Smart Electrical Panel 40 (HR61 series), 40 circuits, on a 200 A / 240 V split-phase
   service (upgraded from 100 A when the panel was installed)
 - **Battery:** 4× PowerOcean battery packs (~400 V DC class)
 - **Solar:** 45 × Canadian Solar CS3W-450MS (450 W) = **20.25 kW**, wired as 8 PV strings
@@ -80,12 +80,12 @@ decoded frames.
 
 ## Relationship to other EcoFlow products
 
-Specific to the **Power Ocean Pro (HR51) + Ocean Smart Panel 40 (HR61)**. It is **not**:
+Specific to the **OCEAN Pro (HR51) + OCEAN Smart Electrical Panel 40 (HR61)**. It is **not**:
 
 - **Delta 3 / Delta Pro 3** — portable power stations. They share the `254/21` envelope field
   numbering in the low range (the HA integrations subclass Delta Pro 3 for that part), but the
-  Ocean Pro's PV-string, grid, DC-bus, and fault fields (600+/1400+) are unique to it.
-- **Smart Home Panel 2 / 3** — the Ocean Smart Panel 40 reuses the SHP3 circuit layout widened
+  OCEAN Pro's PV-string, grid, DC-bus, and fault fields (600+/1400+) are unique to it.
+- **Smart Home Panel 2 / 3** — the OCEAN Smart Electrical Panel 40 reuses the SHP3 circuit layout widened
   from 32 to 40 circuits, but it is a separate device.
 - **EU PowerOcean / PowerOcean Plus** — a different (3-phase) product on the `96`/JTS1 protocol;
   field numbers do not transfer.
@@ -95,8 +95,8 @@ Specific to the **Power Ocean Pro (HR51) + Ocean Smart Panel 40 (HR61)**. It is 
 Two integrations support this hardware:
 
 - **[tolwi/hassio-ecoflow-cloud](https://github.com/tolwi/hassio-ecoflow-cloud)** — the
-  actively-maintained, multi-device integration. I contributed the Ocean Pro profile + fixes:
-  **#892** (merged, v1.7.0) read-only Ocean Pro support; **#894** (merged, v1.7.1) reject
+  actively-maintained, multi-device integration. I contributed the OCEAN Pro profile + fixes:
+  **#892** (merged, v1.7.0) read-only OCEAN Pro support; **#894** (merged, v1.7.1) reject
   implausible battery-power spikes; **#914** (open) derive battery power from PV + PCS. *Recommended.*
 - **[redawg/ecoflow-ocean-ha](https://github.com/redawg/ecoflow-ocean-ha)** — a standalone,
   dedicated US Power Ocean integration; the independent effort this field map was cross-checked against.
@@ -119,7 +119,7 @@ sanitized versions here as they mature:
   nameplate DC rating and a weather-normalized expectation, so you can tell **degradation vs.
   soiling (needs cleaning) vs. shading vs. a genuine fault** apart instead of guessing.
 
-**Other US Ocean Pro (HR51/HR61) owners:** I'd love to compare notes — open a
+**Other US OCEAN Pro (HR51/HR61) owners:** I'd love to compare notes — open a
 [GitHub Issue](../../issues) or [Discussion](../../discussions). Captures from a second unit would
 help validate the still-unidentified fields. I'm also happy to contribute findings back into
 either Home Assistant integration (tolwi or redawg) if the maintainers are interested.

@@ -1,4 +1,4 @@
-# Field inventory — US Power Ocean Pro (HR51 / HR61)
+# Field inventory — US OCEAN Pro (HR51 / HR61)
 
 Fields are addressed by the flattened protobuf path `1.1.<field>` on the app-MQTT stream.
 See [`fieldmap.py`](fieldmap.py) for the authoritative map and units; this file summarizes
@@ -60,7 +60,7 @@ If you have an HR51/HR61 system and can help identify these, please open an issu
 ## Cross-product notes
 
 - **Delta 3 / Delta Pro 3** share the `254/21` envelope field numbering only in the low range
-  (up to ~field 458). The Ocean Pro's 600+/1400+ fields (grid, DC-bus, fault register) are
+  (up to ~field 458). The OCEAN Pro's 600+/1400+ fields (grid, DC-bus, fault register) are
   Ocean-Pro-specific.
 - **EU PowerOcean / Plus** use a different (`96`/JTS1) stream; field *numbers* do not transfer,
   though the field *names* are a useful vocabulary.
